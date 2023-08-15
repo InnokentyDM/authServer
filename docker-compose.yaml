@@ -3,21 +3,21 @@ version: '3'
 services:
   auth:
     container_name: auth
-    build: .
+    build: auth
     ports:
     # Ports are exposed only for testing purposes
       - "8001:8000"
 
   client:
     container_name: client
-    build: .
+    build: client
     environment:
       AUTH_API_URL: http://auth:8000
       RESOURCE_API_URL: http://resource_api:8000
 
   resource_api:
     container_name: resource_api
-    build: .
+    build: resource_api
     ports:
     # Ports are exposed only for testing purposes
       - "8002:8000"

@@ -9,6 +9,11 @@ app = FastAPI()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
+@app.get("/health")
+async def heath():
+    return "ok"
+
+
 @app.post("/token", response_model=Token)
 async def login_for_access_token(
         form_data: OAuth2PasswordRequestForm = Depends(), auth_service:

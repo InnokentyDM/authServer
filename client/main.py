@@ -9,13 +9,17 @@ def get_resources():
     In general, it can be any type of client (e.g. mobile, another api, web)
     :return:
     """
+    print('Retrieving access token')
     access_token_url = f'{settings.auth_api_url}/token'
-
     access_token = requests.get(access_token_url,
                                 auth=HTTPBasicAuth('User', 'Password'))
+    print('Access token is retrieved')
+    print('Retrieving resources')
     resources_url = f'{settings.resource_api_url}/resources'
-    resources = requests.get(resources_url, headers={'Authorization':
+    response = requests.get(resources_url, headers={'Authorization':
                                                          f'Bearer {access_token}'})
+    resources = response.json()
+    print('Resources are retrieved')
     print(resources)
     return resources
 

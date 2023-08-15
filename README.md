@@ -12,8 +12,18 @@ After that client uses this token to access resources at Resource API.
 
 Run
 
-Application can be run in docker
+Application can be executed in docker. There will be three containers running: 
+auth, resource_api, and client.
+
+auth and resource_api are FastAPI apps and client is just a simple script that
+gets and access token and retrieves resources from resource_api.
 
 ```
 docker-compose up
 ```
+
+You can access swagger of auth and resource_api
+
+auth at http://localhost:8001/docs
+
+resource_api at http://localhost:8002/docs

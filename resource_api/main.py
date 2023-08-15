@@ -7,6 +7,11 @@ from resource_service import ResourceService, get_resource_service
 app = FastAPI()
 
 
+@app.get("/health")
+async def heath():
+    return "ok"
+
+
 @app.get("/resources", response_model=list[Resource])
 def read_item(user: User = Depends(get_current_user),
               resource_service: ResourceService = Depends(
