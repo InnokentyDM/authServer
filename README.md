@@ -27,3 +27,13 @@ You can access swagger of auth and resource_api
 auth at http://localhost:8001/docs
 
 resource_api at http://localhost:8002/docs
+
+
+After successful execution of client you should see the following output
+![](result.png)
+
+Virtual environment screenshots
+
+![](venv.png)
+
+![](venv_2.png)
